@@ -1,26 +1,34 @@
-var app = require('app');  // アプリケーション作成用モジュールをロード
-var BrowserWindow = require('browser-window');
- 
-//  クラッシュレポート
-require('crash-reporter').start();
- 
-var mainWindow = null;
- 
-// 全てのウィンドウが閉じたらアプリケーションを終了します。
-app.on('window-all-closed', function() {
+import app from "app";
+import BrowserWindow from "browser-window";
+import crashReporter from 'crash-reporter';
+import {ipcMain} from "electron";
+
+if(process.env.NODE_ENV === 'develop'){
+  crashReporter.start();
+}
+
+const rootPath = `file://${__dirname}`;
+let mainWindow = null;
+
+app.on('window-all-closed', () => {
+  if (process.platform != 'darwin') {
     app.quit();
+  }
 });
- 
-// アプリケーションの初期化が完了したら呼び出されます。
-app.on('ready', function() {
-  // メインウィンドウを作成します。
-  mainWindow = new BrowserWindow({width: 600, height: 400});
- 
-  // メインウィンドウに表示するURLを指定します。
-  mainWindow.loadUrl('file://' + __dirname + '/index.html');
- 
-  // メインウィンドウが閉じられたときの処理
-  mainWindow.on('closed', function() {
+
+app.on('ready', () => {
+  mainWindow = new BrowserWindow({width: 800, height: 600});
+  mainWindow.loadURL(`${rootPath}/index.html`);
+  mainWindow.webContents.openDevTools();
+  mainWindow.on('closed', () => {
     mainWindow = null;
   });
+});
+
+app.on("window-all-closed", () => {
+  app.quit();
+});
+
+ipcMain.on("click-my-button", (sender, e) => {
+  console.log(e);
 });
