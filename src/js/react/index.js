@@ -1,8 +1,8 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import { render } from 'react-dom';
 import Main from './components/view.js';
 
-ReactDOM.render(
+render(
   <Main />,
   document.getElementById('content')
 );
