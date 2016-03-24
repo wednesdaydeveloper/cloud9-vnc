@@ -5,6 +5,7 @@
   "scripts": {
     "start": "electron .",
     "eslint": "eslint src/*.js",
+    "webpack": "webpack --progress --color",
     "build": "electron-packager . electron_test --platform darwin --arch x64"
   },
   "babel": {
