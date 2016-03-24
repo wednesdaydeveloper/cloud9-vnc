@@ -44,14 +44,7 @@
         "@path": "/.c9/runners",
         "configs": {
             "@inited": "true",
-            "json()": {
-                "X11": {
-                    "command": "./run.sh",
-                    "debug": true,
-                    "name": "X11",
-                    "runner": "Shell script"
-                }
-            }
+            "json()": {}
         }
     },
     "share": {
