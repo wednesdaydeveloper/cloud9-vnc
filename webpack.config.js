@@ -5,7 +5,7 @@ var NodeTargetPlugin = require('webpack/lib/node/NodeTargetPlugin');
 var ExternalsPlugin = webpack.ExternalsPlugin;
 
 var opt = {
-    path: "dist",
+  path: "dist",
   filename: 'bundle.js',
   libraryTarget: 'commonjs2',
   publicPath: 'http://localhost:8080/assets/'
@@ -24,7 +24,8 @@ var config = {
   debug: true,
   devtool: 'cheap-module-eval-source-map',
   entry: [
-    './src/js/react/index.js'
+    './src/js/db/dao/select.js'
+//    './src/js/react/index.js'
   ],
   output: opt,
   resolve: {
