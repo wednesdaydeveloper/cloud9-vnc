@@ -1,16 +1,5 @@
-import React from 'react';
-import { render } from 'react-dom';
-import Main from './components/view.js';
-
-render(
-  <Main />,
-  document.getElementById('content')
-);
-
-
-
 const Sequelize = require("sequelize");
-const Model = require("../db/models");
+const Model = require("../models");
 
 const sequelize = new Sequelize('database', '', '', {
   dialect: 'sqlite',
