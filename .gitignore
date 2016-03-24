@@ -2,3 +2,4 @@ supervisord.log
 supervisord.pid
 .c9/
 node_modules/
+npm-debug.log

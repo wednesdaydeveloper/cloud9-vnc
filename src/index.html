@@ -3,10 +3,15 @@
 <head>
     <meta charset="utf-8">
     <title>FirstApp</title>
+    <script>
+      window.onload = function() {
+        require('babel-register');
+        require('./js/react');
+      };
+  </script>
+
 </head>
 <body>
-<h1>初めてのElectron</h1>
-We are using io.js <script>document.write(process.version)</script>
-and Electron <script>document.write(process.versions['electron'])</script>.
+  <div id="content"></div>
 </body>
 </html>
