@@ -1,16 +1,20 @@
 import React, { Component, PropTypes } from 'react';
 
 export default class Store extends Component {
-  
+
+  handleClick(ev) {
+    ev.preventDefault();
+    console.log("Store:handleClick" + ev);
+  };
+
   render() {
+    var stores = this.props.stores.map(store => {
+      return <option value={store.id}>{store.name}</option>;
+    });
     return (
-      <div>
-        <select name="options">
-          <option value="option-1">Option1</option>
-          <option value="option-2">Option2</option>
-          <option value="option-3">Option3</option>
-        </select>  
-      </div>
-    );
+      <select multiple id="storeNames" onChange={ ev=> this.handleClick(ev)}>
+        {stores}
+      </select>
+    );    
   }
 }

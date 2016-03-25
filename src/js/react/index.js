@@ -1,9 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
+import { render } from 'react-dom';
+import { Provider, connect } from 'react-redux';
+import App from './components/App.js';
+import createFinalStore from './store/configureStore';
+
+// Store
+const store = createFinalStore();
+
 
 // main
-ReactDOM.render(
-  <App />,
+render(
+  <Provider store={store}>
+    <App/>
+  </Provider>,
   document.getElementById('content')
 );
