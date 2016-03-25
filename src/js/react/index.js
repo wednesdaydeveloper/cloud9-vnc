@@ -7,7 +7,6 @@ import createFinalStore from './store/configureStore';
 // Store
 const store = createFinalStore();
 
-
 // main
 render(
   <Provider store={store}>
