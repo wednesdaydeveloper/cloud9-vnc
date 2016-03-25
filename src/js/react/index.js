@@ -1,34 +1,9 @@
 import React from 'react';
-import { render } from 'react-dom';
-import Main from './components/view.js';
+import ReactDOM from 'react-dom';
+import App from './components/App';
 
-render(
-  <Main />,
+// main
+ReactDOM.render(
+  <App />,
   document.getElementById('content')
 );
-
-
-
-var Sequelize = require('sequelize');
-var IP = process.env.IP;
-var username = process.env.C9_USER;
-var password = null;
-var sequelize = 
-  new Sequelize('c9', username, password, {
-    host: IP,
-    port: 3306,
-    dialect: 'mysql',
-    pool: {
-      max: 5,
-      min: 0,
-      idle: 10000
-    },
-  });
-  
-const Model = require("../db/models");
-const User = Model.User(sequelize);
-
-User.findAll().then(users => {
-//  console.log(JSON.stringify(users));
-  users.forEach(user => console.log(`${user.id} ${user.username} ${user.birthday}`));
-});
