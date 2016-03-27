@@ -16,7 +16,6 @@ function setTimeoutAsync(d) {
 
 
 //  Promise を用いて非同期に decrement する。
-export const changeStoreAsync = (payload) => (dispatch, getState) => (
-  setTimeoutAsync(delay)
-  .then(() => dispatch(changeStore(payload)))
-);
+export const changeStoreAsync = (payload) => (dispatch, getState) => {
+  setTimeoutAsync(delay).then(() => dispatch(changeStore("selected " + payload)));
+};

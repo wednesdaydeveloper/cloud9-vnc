@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 
-export default class Search extends Component {
+class Search extends Component {
   
   render() {
     return (
@@ -12,12 +13,37 @@ export default class Search extends Component {
     );
   }
 
-  handleClick(e) {
-    e.preventDefault();
+  handleClick(ev) {
+    ev.preventDefault();
     console.log("Search:handleClick");
+    this.props.onAddClick(ev);
   };
 }
 
-// Search.propTypes = {
-//   onAddClick: PropTypes.func.isRequired
-// };
+Search.propTypes = {
+  onAddClick: PropTypes.func.isRequired
+};
+
+
+// Containers
+function mapStateToProps(state) {
+  return {
+    stores: state.stores
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    onAddClick: (ev) => {
+      console.log("mapDispatchToProps:onAddClick");
+    },
+  };
+}
+
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Search);
+
+
