@@ -15,9 +15,15 @@ var sequelize =
   });
   
 const Model = require("../models");
-const User = Model.User(sequelize);
+// const User = Model.User(sequelize);
 
-User.findAll().then(users => {
+// User.findAll().then(users => {
+// //  console.log(JSON.stringify(users));
+//   users.forEach(user => console.log(`${user.id} ${user.username} ${user.birthday}`));
+// });
+
+const Store = Model.Store(sequelize);
+Store.findAll().then(stores => {
 //  console.log(JSON.stringify(users));
-  users.forEach(user => console.log(`${user.id} ${user.username} ${user.birthday}`));
+  stores.forEach(store => console.log(`${store.id} ${store.name}`));
 });

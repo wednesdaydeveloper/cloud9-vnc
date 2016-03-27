@@ -14,10 +14,6 @@ export default class Search extends Component {
 
   handleClick(e) {
     e.preventDefault();
-    // const node = this.refs.input;
-    // const text = node.value.trim();
-    // this.props.onAddClick(text);
-    // node.value = '';
     console.log("Search:handleClick");
   };
 }

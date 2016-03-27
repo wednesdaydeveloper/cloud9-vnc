@@ -18,9 +18,16 @@ function mapStateToProps(state) {
   };
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    onChange: (ev) => console.log("mapDispatchToProps. value: " + ev.target.selectedOptions[0].value + ", name: " + ev.target.selectedOptions[0].text),
+  };
+}
+
 
 const Store2 = connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Store);
 
 
