@@ -1,8 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { changeStoreAsync } from '../actions/ActionCreators';
 
-class Store extends Component {
+export default class Store extends Component {
 
   constructor(props) {
     super(props);
@@ -51,14 +49,3 @@ class Store extends Component {
 Store.propTypes = {
   onClick: PropTypes.func.isRequired
 };
-
-export default connect(
-  (state) => ({stores: state.stores}),
-  (dispatch) => ({
-    onClick: (id) => {
-      dispatch(changeStoreAsync(id));
-    }
-  })
-)(Store);
-
-

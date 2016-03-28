@@ -1,10 +1,10 @@
 import React from 'react';
 import View from './view.js';
-import Store from './Store.js';
+import StoreContainer from '../containers/StoreContainer.js';
 
 const App = () => (
   <div>
-    <Store />
+    <StoreContainer />
     <View />
   </div>
 );
