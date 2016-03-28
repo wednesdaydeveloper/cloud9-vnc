@@ -2,11 +2,6 @@ import React, { Component, PropTypes } from 'react';
 
 export default class Store extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = { stores: [] };
-  }
-  
   handleClick(ev) {
     ev.preventDefault();
     const node = this.refs.store;
@@ -30,7 +25,7 @@ export default class Store extends Component {
           </select>
         </div>
         <div>
-          <button onClick={e => this.handleClick(e)}>
+          <button onClick={this.handleClick.bind(this)}>
             Search
           </button>
         </div>
