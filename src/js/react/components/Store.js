@@ -7,13 +7,6 @@ export default class Store extends Component {
     this.state = { stores: [] };
   }
   
-  componentDidMount() {
-    
-    //  店舗情報をDBから取得し、state にセット。
-    const dao = require('../../db/dao/StoreDao');
-    dao((stores) => this.setState({stores: stores}));
-  }
-  
   handleClick(ev) {
     ev.preventDefault();
     const node = this.refs.store;
@@ -24,7 +17,7 @@ export default class Store extends Component {
   }
 
   render() {
-    const stores = this.state.stores.map(store => {
+    const stores = this.props.stores.map(store => {
       return <option value={store.id}>{store.name}</option>;
     });
     
