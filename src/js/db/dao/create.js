@@ -2,17 +2,17 @@ var Sequelize = require('sequelize');
 var IP = process.env.IP;
 var username = process.env.C9_USER;
 var password = null;
-var sequelize = 
-  new Sequelize('c9', username, password, {
-    host: IP,
-    port: 3306,
-    dialect: 'mysql',
-    pool: {
-      max: 5,
-      min: 0,
-      idle: 10000
-    },
-  });
+
+import Config from 'config';
+
+//    設定を読み込む
+const params = Config.sequelize || {};
+
+const sequelize = new Sequelize(
+  params.database,
+  params.username,
+  params.password,
+  params.options);
 
 const Model = require("../models");
 const User = Model.User(sequelize);
@@ -37,7 +37,7 @@ sequelize.sync().then(function() {
     { id: 3, name: "store3" },
     { id: 4, name: "store4" },
     { id: 5, name: "store5" },
-    { id: 6, name: "store6" },
+    { id: 6, name: "store6" }
   ]).then(function() {
     console.log("ok");
   }).catch(function(err) {

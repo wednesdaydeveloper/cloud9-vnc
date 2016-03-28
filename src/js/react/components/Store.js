@@ -20,10 +20,9 @@ class Store extends Component {
     const node = this.refs.store;
     if (node.selectedIndex >= 0) {
       const id = node.selectedOptions[0].value;
-      const name = node.selectedOptions[0].text;
-      this.props.onClick(id, name);
+      this.props.onClick(id);
     }
-  };
+  }
 
 
   render() {
@@ -35,7 +34,7 @@ class Store extends Component {
     return (
       <div>
         <div>
-          <select multiple id="storeNames" ref='store'>
+          <select id="storeNames" ref='store' size="5">
             {stores}
           </select>
         </div>
@@ -63,12 +62,11 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    onClick: (id, name) => {
+    onClick: (id) => {
       dispatch(changeStoreAsync(id));
-    },
+    }
   };
 }
-
 
 export default connect(
   mapStateToProps,
