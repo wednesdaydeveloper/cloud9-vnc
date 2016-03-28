@@ -1,5 +1,6 @@
 var Sequelize = require('sequelize');
-var Config = require('config');
+
+import Config from 'config';
 
 //    設定を読み込む
 const params = Config.sequelize || {};
@@ -9,7 +10,7 @@ const sequelize = new Sequelize(
   params.username,
   params.password,
   params.options);
-
+  
 const Model = require("../models");
 const Store = Model.Store(sequelize);
 

@@ -24,6 +24,32 @@ module.exports = {
       underscored: true,
       tableName: 'm_store'     
     });
+  },
+  NewCustomer: function(sequelize) {
+    return sequelize.define('V_NEW_CUSTOMER_COUNT', {
+      month: {
+        type: Sequelize.STRING,
+        field: 'MONTH'
+      },
+      storeId: {
+        type: Sequelize.INTEGER,
+        field: 'STORE_ID'
+      },
+      storeName: {
+        type: Sequelize.STRING,
+        field: 'STORE_NAME'
+      },
+      count: {
+        type: Sequelize.INTEGER,
+        field: 'COUNT'
+      }
+    }, {
+      getterMethods: {},
+      classMethods: {},
+      instanceMethods: {},
+      tableName: 'V_NEW_CUSTOMER_COUNT',
+      timestamps: false
+    });
   }
   
   
