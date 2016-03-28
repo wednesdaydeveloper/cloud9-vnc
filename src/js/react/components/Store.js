@@ -6,11 +6,12 @@ class Store extends Component {
 
   constructor(props) {
     super(props);
-    
     this.state = { stores: [] };
   }
   
   componentDidMount() {
+    
+    //  店舗情報をDBから取得し、state にセット。
     const dao = require('../../db/dao/StoreDao');
     dao((stores) => this.setState({stores: stores}));
   }
@@ -23,7 +24,6 @@ class Store extends Component {
       this.props.onClick(id);
     }
   }
-
 
   render() {
     const stores = this.state.stores.map(store => {
@@ -52,25 +52,13 @@ Store.propTypes = {
   onClick: PropTypes.func.isRequired
 };
 
-
-// Containers
-function mapStateToProps(state) {
-  return {
-    stores: state.stores
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
+export default connect(
+  (state) => ({stores: state.stores}),
+  (dispatch) => ({
     onClick: (id) => {
       dispatch(changeStoreAsync(id));
     }
-  };
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  })
 )(Store);
 
 

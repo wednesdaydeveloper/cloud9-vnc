@@ -1,7 +1,4 @@
 var Sequelize = require('sequelize');
-var IP = process.env.IP;
-var username = process.env.C9_USER;
-var password = null;
 
 import Config from 'config';
 

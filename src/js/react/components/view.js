@@ -1,26 +1,14 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-class View extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  
-  render() {
-    return (
-      <div>{this.props.message}</div>
-    );
-  }
-}
+const View = ({ message }) => (
+  <div>{message}</div>
+);
 
-// Containers
-function mapStateToProps(state) {
-  return {
-    message: state.message
-  };
-}
-
+View.propTypes = {
+  message: PropTypes.string.isRequired
+};
 
 export default connect(
-  mapStateToProps
+  (state) => ({message: state.message})
 )(View);

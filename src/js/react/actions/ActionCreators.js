@@ -4,18 +4,15 @@ import { CHANGE_STORE } from './ActionTypes';
 // Action Creator
 export const changeStore = createAction(CHANGE_STORE);
 
-const delay = 1000;
+const Delay = 1000;
 
 //  Promise を用いて非同期にタイマーをセットする。
-function setTimeoutAsync(d) {
+function setTimeoutAsync(delay) {
   return new Promise((resolve, reject) => (
-    setTimeout(resolve, d)
+    setTimeout(resolve, delay)
   ));
 }
-
-
-
-//  Promise を用いて非同期に decrement する。
+//  Promise を用いて非同期に処理する。
 export const changeStoreAsync = (payload) => (dispatch, getState) => {
-  setTimeoutAsync(delay).then(() => dispatch(changeStore("selected " + payload)));
+  setTimeoutAsync(Delay).then(() => dispatch(changeStore("selected " + payload)));
 };

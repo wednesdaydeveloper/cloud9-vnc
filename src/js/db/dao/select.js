@@ -1,7 +1,4 @@
 var Sequelize = require('sequelize');
-var IP = process.env.IP;
-var username = process.env.C9_USER;
-var password = null;
 
 var Config = require('config');
 
@@ -13,7 +10,6 @@ const sequelize = new Sequelize(
   params.username,
   params.password,
   params.options);
-
 
 const Model = require("../models");
 // const User = Model.User(sequelize);
