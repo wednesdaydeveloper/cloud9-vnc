@@ -5,6 +5,8 @@ import { CHANGE_STORE, FETCH_STORES } from './ActionTypes';
 export const changeStore = createAction(CHANGE_STORE);
 export const fetchStores = createAction(FETCH_STORES);
 
+const dao = require("../../db/dao/NewCustomerDao.js");
+
 const Delay = 1000;
 
 //  Promise を用いて非同期にタイマーをセットする。
@@ -15,7 +17,10 @@ function setTimeoutAsync(delay) {
 }
 //  Promise を用いて非同期に処理する。
 export const changeStoreAsync = (payload) => (dispatch, getState) => {
-  setTimeoutAsync(Delay).then(() => dispatch(changeStore("selected " + payload)));
+  dao(payload, (results) => {
+    dispatch(changeStore(results));
+  });
+//  setTimeoutAsync(Delay).then(() => dispatch(changeStore("selected " + payload)));
 };
 
 //  Promise を用いて非同期に処理する。
