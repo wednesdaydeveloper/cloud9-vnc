@@ -7,25 +7,13 @@ export const fetchStores = createAction(FETCH_STORES);
 
 const dao = require("../../db/dao/NewCustomerDao.js");
 
-const Delay = 1000;
-
-//  Promise を用いて非同期にタイマーをセットする。
-function setTimeoutAsync(delay) {
-  return new Promise((resolve, reject) => (
-    setTimeout(resolve, delay)
-  ));
-}
-//  Promise を用いて非同期に処理する。
+//  DBから該当する店舗の情報を取得
 export const changeStoreAsync = (payload) => (dispatch, getState) => {
-  dao(payload, (results) => {
-    dispatch(changeStore(results));
-  });
-//  setTimeoutAsync(Delay).then(() => dispatch(changeStore("selected " + payload)));
+  dao(payload, (results) => dispatch(changeStore(results)));
 };
 
-//  Promise を用いて非同期に処理する。
+//  店舗情報をDBから非同期に取得する。
 export const fetchStoresAsync = () => (dispatch, getState) => {
-  //  店舗情報をDBから取得し、state にセット。
   const dao = require('../../db/dao/StoreDao');
   dao((stores) => dispatch(fetchStores(stores)));
 };
