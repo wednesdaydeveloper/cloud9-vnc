@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 const View = ({ results }) => {
 
-  if (!results || results.count == 0) {
+  if (!results || results.length == 0) {
     return <table/>;
   }
 
