@@ -18,16 +18,16 @@ const Model = require("../models");
 //   users.forEach(user => console.log(`${user.id} ${user.username} ${user.birthday}`));
 // });
 
-// const Store = Model.Store(sequelize);
-// Store.findAll().then(stores => {
-// //  console.log(JSON.stringify(users));
-//   stores.forEach(store => console.log(`${store.id} ${store.name}`));
-// });
+const Store = Model.Store(sequelize);
+Store.findAll().then(stores => {
+//  console.log(JSON.stringify(users));
+  stores.forEach(store => console.log(`${store.id} ${store.name}`));
+});
 
 // const NewCustomer = Model.NewCustomer(sequelize);
 // NewCustomer.findAll().then(results => {
 //   console.log(JSON.stringify(results));
 // });
 
-const dao = require("./NewCustomerDao.js");
-dao(2, (results) => results.forEach(result => console.log(`${result.month} ${result.storeName} ${result.count}`)));
+// const dao = require("./NewCustomerDao.js");
+// dao(2, (results) => results.forEach(result => console.log(`${result.month} ${result.storeName} ${result.count}`)));

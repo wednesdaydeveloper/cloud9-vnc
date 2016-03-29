@@ -21,7 +21,7 @@ module.exports = function (callback) {
 
     const array = [];
     stores.forEach(store => {
-      array.push({"id": store.id, "name": store.name});
+      array.push({"id": store.storeId, "name": store.storeName});
     });
     callback(array);
   });

@@ -1,29 +1,38 @@
 const Sequelize = require("sequelize");
 
 module.exports = {
-  User: function(sequelize) {
-    return sequelize.define('user', {
-      username: Sequelize.STRING,
-      birthday: Sequelize.DATE
-    }, {
-      timestamps: false,
-      underscored: true,
-      tableName: 'm_user'     
-    });
-  },
+  
   Store: function(sequelize) {
-    return sequelize.define('store', {
-      id: {
+    return sequelize.define('M_STORE', {
+      storeId: {
         type: Sequelize.INTEGER,
         primaryKey: true,
-        autoIncrement: true
+        autoIncrement: true,
+        field: 'ID'
       },
-      name: Sequelize.STRING
+      storeName: {
+        type: Sequelize.STRING,
+        field: 'NAME'
+      }
     }, {
-      timestamps: false,
-      underscored: true,
-      tableName: 'm_store'     
+      getterMethods: {},
+      classMethods: {},
+      instanceMethods: {},
+      tableName: 'M_STORE',
+      timestamps: false
     });
+    // return sequelize.define('store', {
+    //   id: {
+    //     type: Sequelize.INTEGER,
+    //     primaryKey: true,
+    //     autoIncrement: true
+    //   },
+    //   name: Sequelize.STRING
+    // }, {
+    //   timestamps: false,
+    //   underscored: true,
+    //   tableName: 'm_store'     
+    // });    
   },
   NewCustomer: function(sequelize) {
     return sequelize.define('V_NEW_CUSTOMER_COUNT', {
@@ -51,7 +60,4 @@ module.exports = {
       timestamps: false
     });
   }
-  
-  
-  
 };

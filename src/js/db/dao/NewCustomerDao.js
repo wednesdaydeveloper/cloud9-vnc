@@ -19,7 +19,7 @@ module.exports = function(storeId, callback) {
     where: {
       storeId: storeId
     },
-    attributes: ['month', 'storeName', 'count', ],
+    attributes: ['month', 'storeName', 'count' ],
     order: 'month'
   })
   .then(results => {
